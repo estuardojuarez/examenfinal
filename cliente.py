@@ -106,9 +106,7 @@ def alive_clock():
         time.sleep(1)
         contador+=1
         
-        logging.info("Ha llegado el mensaje al topic: "+contador)    
-        
-        
+    
 hilo1 = threading.Thread(target=alive_clock,daemon = False)
 hilo1.start()
 #se coloca deamon = False para que el proceso muera con el target    
@@ -244,7 +242,7 @@ def on_message(client, userdata, msg):
         recepcion= 'file_received__salas_encriptado.wav'   
         hasher = SHA256.new(password.encode('utf-8'))
         decrypt(hasher.digest(), recepcion)                
-        os.system('aplay desencriptadoed_encriptado.wav')      
+        os.system('desencriptadoed__salas_encriptado.wav')      
 
  #Y se almacena en el log 
     logCommand = 'echo "(' + str(msg.topic) + ') -> ' + str(msg.payload) + '" >> ' + LOG_FILENAME
